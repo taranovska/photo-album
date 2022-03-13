@@ -4,9 +4,10 @@ import Box from "@mui/material/Box";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions, styled } from "@mui/material";
+import { CardActionArea, styled } from "@mui/material";
 import ModalUnstyled from "@mui/base/ModalUnstyled";
 import ClearIcon from "@mui/icons-material/Clear";
+import { useGlobalContext } from "../context";
 
 const StyledModal = styled(ModalUnstyled)`
   position: fixed;
@@ -31,18 +32,12 @@ const Backdrop = styled("div")`
   -webkit-tap-highlight-color: transparent;
 `;
 
-// const style = {
-//   bgcolor: "background.paper",
-//   border: "2px solid #000",
-// };
-
 const StockPhotos = (props) => {
   const { ...photo } = props;
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  //   const [photo, setPhoto] = useState();
-  console.log(photo.id);
+  const { removePhoto } = useGlobalContext();
 
   return (
     <div className={photo.id}>
@@ -58,7 +53,7 @@ const StockPhotos = (props) => {
           <ClearIcon
             color="secondary"
             className="clearIcon"
-            onClick={() => props.onChange(photo.id)}
+            onClick={() => removePhoto(photo.id)}
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">

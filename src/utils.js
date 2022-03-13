@@ -1,12 +1,10 @@
 const paginate = (photos) => {
-  const itemsPerPage = 100;
-  const pages = photos.length / itemsPerPage;
-  console.log(pages);
+  const estimatedItemsPerPage = 100;
+  const pages = Math.ceil(photos.length / estimatedItemsPerPage);
   const newPhotos = Array.from({ length: pages }, (_, index) => {
-    const start = index * itemsPerPage;
-    return photos.slice(start, start + itemsPerPage);
+    const start = index * estimatedItemsPerPage;
+    return photos.slice(start, start + estimatedItemsPerPage);
   });
-
   return newPhotos;
 };
 
