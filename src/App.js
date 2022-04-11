@@ -29,7 +29,7 @@ function App() {
   useEffect(() => {
     setPhotosPerPage(data[page]);
   }, [data, page]);
-  
+
   const onPageChange = (e) => {
     e.target.type === "button"
       ? setPage(parseInt(e.target.ariaLabel.match(/\d+/)) - 1)
@@ -54,7 +54,7 @@ function App() {
         return nextPage;
       });
   };
-  
+
   const selectionHandler = (id) => {
     setSelectedAlbumId(id);
     handleChange(id);
@@ -74,7 +74,6 @@ function App() {
             id="demo-simple-select"
             value={albumId}
             label="AlbumId"
-            // onChange={() => handleChange(selectedAlbumId)}
           >
             {allAlbumId.map((id, index) => (
               <MenuItem

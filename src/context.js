@@ -39,7 +39,7 @@ const AppProvider = ({ children }) => {
   const removePhoto = (id) => {
     dispatch({ type: REMOVE_PHOTO, payload: id });
   };
-  
+
   const handleChange = (id) => {
     dispatch({ type: HANDLE_CHANGE, payload: id });
   };
